@@ -34,3 +34,8 @@ function mapDispatchToProps (dispatch) {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+// connect :: lié l component par le data dans reducer   /// lié redux avec notre component App
+// mapStateToProps :  donne moi le state du store et envoie le comme props pour le component App
+//mapDispatchToProps => envoi les parametre increase et decrease comme props
