@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class App extends Component {
 
-  increase = () => {
-    this.setState({
-      count: this.props + 1
-    })
-  }
-  decrease = () => {
-    this.setState({
-      count: this.props - 1
-    })
-  }
+  
   render(){
     console.log(this.props)
     return (
       <div className="App">
-        <button onClick={this.increase}> + </button>
+        <button onClick={this.props.increase}> + </button>
         <div>{this.props.count}</div>
-        <button onClick={this.decrease}> - </button>
+        <button onClick={this.props.decrease}> - </button>
       </div>
     );
   }
@@ -29,4 +20,17 @@ function mapStateToProps(state) {
     count : state.count
   }
 }
-export default connect(mapStateToProps)(App);
+
+const action1 = {
+  type: 'INCREASE'
+}
+const action2 = {
+  type: 'DECREASE'
+}
+function mapDispatchToProps (dispatch) {
+  return {
+    increase : () => dispatch(action1),
+    decrease : () => dispatch(action2)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
