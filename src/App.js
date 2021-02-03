@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { increase,decrease } from './actions/action'
 class App extends Component {
 
   
@@ -29,8 +30,8 @@ const action2 = {
 }
 function mapDispatchToProps (dispatch) {
   return {
-    increase : () => dispatch(action1),
-    decrease : () => dispatch(action2)
+    increase : () => dispatch(increase()),
+    decrease : () => dispatch(decrease())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
